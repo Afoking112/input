@@ -7,8 +7,11 @@ function App() {
   const [inputvalue2,setinputvalue2] = useState("");
   // const [displayinput,setdisplayinput] = useState("");
   // const [displayinput1,setdisplayinput1] = useState("");
+  const [inputvalue3,setinputvalue3] = useState("");
+  
   const [array,setarray] = useState([])
 
+  
   const inputtype1 = (e)=>{
     setinputvalue1(e.target.value)
   }
@@ -18,7 +21,11 @@ function App() {
   const type = ()=>{
     const newinput =[...array, inputvalue1 ,inputvalue2]
 setarray(newinput)
-
+    setinputvalue1("")
+    setinputvalue2("")
+  }
+  const stamp = ()=>{
+    setinputvalue3(!inputvalue3)
   }
   return (
     <div className="App">
@@ -28,7 +35,7 @@ setarray(newinput)
       
       
         <>
-        {
+        { array.length == 0 ? "User not available" :
           array.map((input,index)=>(
           
             <div className='display' key={index}>{input}</div>
@@ -37,6 +44,8 @@ setarray(newinput)
         }
       
         </>
+        <input type={inputvalue3 ? "text" : "password"} />
+        <button onClick={stamp}>toggle</button>
     
     </div>
   );
