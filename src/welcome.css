@@ -1,0 +1,27 @@
+.hey{
+    display: flex;
+    width: 250px;
+
+}
+.how{
+    height: 90vh;
+    line-height: 46px;
+    display: flex;
+}
+/* for Dashboard */
+.one,.two,.three,.four{
+    height: 100px;
+    width: 240px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin-left: 10px;
+    font-size: 13px;
+    padding-left: 30px;
+    padding-top: 20px;
+    box-shadow: inset;
+}
+.four-box{
+    display: flex;
+}
+/* for profile */
+

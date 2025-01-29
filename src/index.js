@@ -10,6 +10,9 @@ import Navbar from './Navbar';
 import Welcome from './Welcome';
 import Landing from './Landing';
 import Sidenav from './Sidenav';
+import Myprofile from './Myprofile';
+import Changepassword from './Changepassword';
+import Document from './Document';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +24,11 @@ root.render(
   
     <Route path='*' element={<Notfound/>}/>
     <Route path='/home' element={<Welcome/>}>
-      <Route path='/home/landing' element={<Landing/>}/>
+      <Route path='/home/Dashboard' element={<Landing/>}/>
+      <Route path='/home/Profile' element={<Myprofile/>}/>
+      <Route path='/home/Password' element={<Changepassword/>}/>
+      <Route path='/home/Document' element={<Document/>}/>
+
     </Route>
   </Routes>
   </BrowserRouter>
