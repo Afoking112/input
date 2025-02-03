@@ -1,7 +1,8 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Displaycounter from './Displaycounter'
 import Increasecounter from './Increasecounter'
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,10 +14,15 @@ function App() {
   // const [displayinput1,setdisplayinput1] = useState("");
   const [inputvalue3,setinputvalue3] = useState("");
   
-  const [array,setarray] = useState([])
+ 
+  const [array,setarray] = useState( JSON.parse(localStorage.getItem("userdetails")) || [])
   const [edited,setedited] = useState(null)
+  const [completed,setcompleted] = useState(false)
 
+useEffect(()=>{
+  localStorage.setItem("userdetails", JSON.stringify(array))
 
+},[array])
   
   const inputtype1 = (e)=>{
     setinputvalue1(e.target.value)
@@ -29,6 +35,7 @@ function App() {
     if (edited !== null) {
       const updatedArray = array.map((item, index) =>
         index === edited ? newinputstyle : item
+     
       );
       setarray(updatedArray);
       setedited(null); 
@@ -55,6 +62,7 @@ setarray(newinput)
     setinputvalue2(value2)
     setedited(index)
   }
+
   
   return (
     <div className=" App">
@@ -76,6 +84,8 @@ setarray(newinput)
             <div className=' display' key={index}>{input}
             <button onClick={()=> edit(index)}>Edit</button>
             <button onClick={()=> deleted(index)}>Delete</button>
+          <input type="checkbox" checked={!completed} onChange={(e)=> setcompleted()} name="" id="" />
+            <Link to={`/one/${index}`}>see more</Link>
             </div>
          
        ))

@@ -13,6 +13,10 @@ import Sidenav from './Sidenav';
 import Myprofile from './Myprofile';
 import Changepassword from './Changepassword';
 import Document from './Document';
+import Onetodo from './Onetodo';
+import Http from './Http';
+import Job from './Job';
+import Nextpage from './Nextpage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,8 +25,14 @@ root.render(
     <Navbar/>
      <Routes>
     <Route path='/' element={<App/>}/>
-  
+  <Route path='/one/:index' element={<Onetodo/>}/>
     <Route path='*' element={<Notfound/>}/>
+    <Route path='/http' element={<Http/>}/>
+    {/* <Route>
+      
+    </Route> */}
+    <Route path='/job' element={<Job/>}/>
+    <Route path='/tododetails/:id' element={<Nextpage/>}/>
     <Route path='/home' element={<Welcome/>}>
       <Route path='/home/Dashboard' element={<Landing/>}/>
       <Route path='/home/Profile' element={<Myprofile/>}/>
